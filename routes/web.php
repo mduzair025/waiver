@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('admin.index');
+    return view('welcome');
 });
 Route::get('/detail', function () {
     return view('detail');
@@ -35,5 +35,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::post('/email', [EmailController::class, 'create'])->name('email-check');
+Route::post('/detail-submit', [EmailController::class, 'detailSubmit'])->name('detail-submit');
+Route::post('/accept', [EmailController::class, 'acceptSubmit'])->name('accept');
 
 require __DIR__.'/auth.php';

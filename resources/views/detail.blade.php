@@ -2,7 +2,10 @@
 @section('content')
 <div class="container-fluid">
     <div class="row vertical-center">
-        <form class="bg-main col-6 mx-auto p-0 rounded-3 shadow-sm">
+        <form action="{{route('detail-submit')}}" class="bg-main col-6 mx-auto p-0 rounded-3 shadow-sm" id="detail-submit" method="POST">
+            @csrf
+            <input type="hidden" name="isEmail" value="{{$isEmail}}">
+            <input type="hidden" name="email" value="{{$email}}">
             <div class="text-center mb-4 bg-white">
                 <img src="https://cdn.rollerdigital.com/image/ZYgohD-N7ES84oOr_J6Q_A.png">
             </div>
@@ -20,6 +23,7 @@
                         <span class="ps-2">Back</span>
                     </a>
                 </div>
+                @if($isEmail)
                 <div class="already-form">
                     <div class="text-center">
                         <svg width="100px" height="100px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,7 +49,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="detail-form">
+                @endif
+                <div class="detail-form mt-3">
                     <h2>Your Details</h2>
                     <p>I'm signing on behalf of a minor or dependent</p>
                     <div class="input-group">
@@ -54,12 +59,12 @@
                             Yes
                         </label>
                         <label class="ms-3" for="isminor-no">
-                            <input type="radio" value="0" name="isminor" required id="isminor-no">
+                            <input type="radio" value="0" name="isminor" required id="isminor-no" checked>
                             No
                         </label>
                     </div>
                     <div class="row py-5">
-                        <div class="col-12 mb-4">
+                        <div class="col-12 mb-4 isMinor dnone">
                             <label class="text-info">YOUR DETAILS (GUARDIAN)</label>
                         </div>
                         <div class="col-6">
@@ -99,45 +104,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="minor-form" data-count="1">
-                        <div class="col-12 mb-4">
-                            <label class="text-info">MINOR 1</label>
-                            <button class="remove btn btn-danger float-end btn-sm" data-id="1">
-                                <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path d="M10 12V17" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                        <path d="M14 12V17" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                        <path d="M4 7H20" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                        <path d="M6 10V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V10" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                        <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                    </g>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="col-12">
-                            <div class="mb-3">
-                                <label class="form-label">First Name</label>
-                                <input type="text" class="form-control" name="minors[1][firstname]" placeholder="Enter the first name" required>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="mb-3">
-                                <label class="form-label">Last Name</label>
-                                <input type="text" class="form-control" name="minors[1][lastname]" placeholder="Enter the last name" required>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="mb-3">
-                                <label class="form-label">Date of birth</label>
-                                <input type="date" class="form-control" name="minors[1][dob]" required>
-                            </div>
-                        </div>
+                    <div class="minor-form isMinor dnone" data-count="0">
+                        
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 isMinor dnone">
                         <div class="mb-3 float-end">
-                            <button type="button" class="remove btn btn-success btn-sm">
+                            <button type="button" class="addMinor btn btn-success btn-sm">
                                 <svg width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#fff" stroke="#fff">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -167,3 +139,91 @@
     </div>
 </div>
 @endsection
+@push('js')
+    <script>
+
+        var minorCount = $('.minor-form').data('count');
+        function addMinor(count){
+            return `<div class="minor-list">
+                <div class="col-12 mb-4">
+                    <label class="text-info">MINOR ${count}</label>
+                    <button type="button" class="removeMinor btn btn-danger float-end btn-sm">
+                        <svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path d="M10 12V17" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M14 12V17" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M4 7H20" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M6 10V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V10" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+                <div class="col-12">
+                    <div class="mb-3">
+                        <label class="form-label">First Name</label>
+                        <input type="text" class="form-control" name="minors[${count}][firstname]" placeholder="Enter the first name" required>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="mb-3">
+                        <label class="form-label">Last Name</label>
+                        <input type="text" class="form-control" name="minors[${count}][lastname]" placeholder="Enter the last name" required>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="mb-3">
+                        <label class="form-label">Date of birth</label>
+                        <input type="date" class="form-control" name="minors[${count}][dob]" required>
+                    </div>
+                </div>
+            </div>`;
+        }
+
+        function minorYes(){
+            minorCount++;
+            $('.minor-form').append(addMinor(minorCount));
+            $('.minor-form').data('count', minorCount);
+            $('.isMinor').removeClass('dnone');
+        }
+        function minorNo(){
+            minorCount = 0;
+            $('.minor-form').html('');
+            $('.minor-form').data('count', minorCount);
+            $('.isMinor').addClass('dnone');
+        }
+
+        function checkMinor(){
+            minorCount = $('.minor-form').data('count');
+            if(minorCount == 0){
+                $('#isminor-no').prop('checked', true);
+                minorNo();
+            }
+        }
+
+        
+        $(document).ready(function(){
+            $('#isminor-yes').click(function(){
+                minorYes();
+            });
+            $('#isminor-no').click(function(){
+                minorNo();
+            });
+
+            $(document).on('click', '.addMinor', function(){
+                minorCount++;
+                $('.minor-form').append(addMinor(minorCount));
+                $('.minor-form').data('count', minorCount);
+            });
+            $(document).on('click', '.removeMinor', function(){
+                minorCount--;
+                $('.minor-form').data('count', minorCount);
+                $('.minor-list').last().remove();
+                checkMinor();
+            });
+            
+        });
+    </script>
+@endpush

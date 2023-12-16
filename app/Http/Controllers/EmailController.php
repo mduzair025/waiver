@@ -18,9 +18,29 @@ class EmailController extends Controller
         $request->validate([
             'email' => 'required|email'
         ]);
+        
+        $isEmail = Email::where('email', $request->email)->exists(); 
 
-       $email = $request->email;
+        $email = $request->email;
+       
+        return view('detail', compact('email', 'isEmail'));
+    }
 
-        return view('detail', compact('email'));
+    public function detailSubmit(Request $request)
+    {
+
+        $datas = [];
+        foreach ($request->all() as $key => $value) {
+            if ($key != '_token') {
+                $datas[$key] = $value;
+            }
+        }
+        
+        return view('accept', compact('datas'));
+    }
+
+    public function acceptSubmit(Request $request)
+    {
+        
     }
 }
