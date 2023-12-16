@@ -14,10 +14,14 @@ class Email extends Model
     protected $fillable = ['email'];
 
     public function details(){
-        return $this->hasMany(EmailDetail::class);
+        return $this->hasMany(EmailDetail::class, 'email_id', 'id')->latest();
+    }
+
+    public function detail(){
+        return $this->hasOne(EmailDetail::class);
     }
 
     public function minors(){
-        return $this->hasMany(Minor::class);
+        return $this->hasMany(Minor::class)->latest();
     }
 }

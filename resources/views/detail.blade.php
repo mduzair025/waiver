@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 @endif
-                <div class="detail-form mt-3">
+                <div class="detail-form mt-3 {{$isEmail ? 'dnone' : '' }}">
                     <h2>Your Details</h2>
                     <p>I'm signing on behalf of a minor or dependent</p>
                     <div class="input-group">
@@ -131,7 +131,7 @@
                 </div>
                 <div class="footer">
                     <div class="buttom-btn mb-3 flex">
-                        <button class="btn btn-primary w-100 ch-50" type="submit">Continue</button>
+                        <button class="btn btn-primary w-100 ch-50 submitBtn" type="submit">Continue</button>
                     </div>
                 </div>
             </div>
@@ -183,9 +183,11 @@
         }
 
         function minorYes(){
-            minorCount++;
-            $('.minor-form').append(addMinor(minorCount));
-            $('.minor-form').data('count', minorCount);
+            if(minorCount == 0){
+                minorCount++;
+                $('.minor-form').append(addMinor(minorCount));
+                $('.minor-form').data('count', minorCount);
+            }
             $('.isMinor').removeClass('dnone');
         }
         function minorNo(){
@@ -205,6 +207,18 @@
 
         
         $(document).ready(function(){
+            $('#radio-no').click(function(){
+                $('.submitBtn').text('Done');
+                $('#detail-submit').attr('action', '/');
+                // all required fields remove
+                $('#detail-submit input').prop('required', false);
+            });
+            $('#radio-yes').click(function(){
+                
+                $('.already-form').addClass('dnone');
+                $('.detail-form').removeClass('dnone');
+            });
+
             $('#isminor-yes').click(function(){
                 minorYes();
             });

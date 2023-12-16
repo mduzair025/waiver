@@ -3,10 +3,7 @@
 <div class="container-fluid">
     <div class="row vertical-center">
         <form action="{{route('accept')}}" class="bg-main col-6 mx-auto p-0 rounded-3 shadow-sm" id="accept" method="POST">
-            @csrf
-            @foreach($datas as $key => $data)
-                <input type="hidden" name="{{$key}}" value="{{$data}}">
-            @endforeach
+            @csrf 
             <div class="text-center mb-4 bg-white">
                 <img src="https://cdn.rollerdigital.com/image/ZYgohD-N7ES84oOr_J6Q_A.png">
             </div>

@@ -7,6 +7,11 @@
             <li class="breadcrumb-item active">Dashboard</li>
         </ol>
         <div class="row">
+            <div class="col-12">
+                <p>Welcome to dashboard</p>
+            </div>
+        </div>
+        {{-- <div class="row">
             <div class="col-xl-3 col-md-6">
                 <div class="card bg-primary text-white mb-4">
                     <div class="card-body">Primary Card</div>
@@ -551,7 +556,7 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div> --}}
     </div>
 </main>
 
