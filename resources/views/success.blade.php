@@ -10,7 +10,7 @@
                 <div>
                     <div class="waiver__inner">
                         <h2>Thanks, {{$emailData['firstname']}}.</h2>
-                        <p>A signed copy has been sent to {{$emailData['email']}} and is valid from {{ \Carbon\Carbon::parse($emailData['dob'])->format('d M Y') }} until {{ \Carbon\Carbon::parse($emailData['dob'])->addYears(1)->format('d M Y') }}.</p>
+                        <p>A signed copy has been sent to {{$emailData['email']}} and is valid from {{ now()->format('d M Y') }} until {{ now()->addYears(1)->format('d M Y') }}.</p>
 
                         <p>Please show the signed copy (or just this screen) to one of our staff when you arrive.</p>
                         <p>If there are still guests on your booking that need to sign a waiver, you can give them this link:</p>

@@ -214,9 +214,13 @@
                 $('#detail-submit input').prop('required', false);
             });
             $('#radio-yes').click(function(){
-                
+                $('.submitBtn').text('Continue');
+                $('#detail-submit').attr('action', '{{route("detail-submit")}}');
                 $('.already-form').addClass('dnone');
                 $('.detail-form').removeClass('dnone');
+                $('#detail-submit input').prop('required', true);
+                $('#isminor-yes').prop('checked', true);
+                minorYes();
             });
 
             $('#isminor-yes').click(function(){

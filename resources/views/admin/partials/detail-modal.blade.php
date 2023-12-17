@@ -10,8 +10,8 @@
                     <div class="table-header">
                         <div class="header-cell">First Name</div>
                         <div class="header-cell">Last Name</div>
-                        <div class="header-cell">Date of Birth</div>
                         <div class="header-cell">Phone</div>
+                        <div class="header-cell">Date of Birth</div>
                         <div class="header-cell">Action</div>
                     </div>
                    
