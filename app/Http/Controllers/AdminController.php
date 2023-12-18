@@ -28,13 +28,6 @@ class AdminController extends Controller
             }
         ])->find($id)->toArray();
 
-        $data = [
-            'email' => $email
-        ];
-        $rand = rand(1000, 9999) . time();
-        $pdf = PDF::loadView('pdf', $data);
-        $pdf->save('uploads/' . $rand . '.pdf');
-        
-        return url('uploads/' . $rand . '.pdf');
+        return $this->createPDF($email);
     }
 }
