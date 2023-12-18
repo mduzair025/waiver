@@ -11,6 +11,13 @@
             --bs-gray: #E7E7E7;
         }
 
+        body {
+            font-size: 18px;
+            font-weight: 500;
+            background-color: var(--bs-gray);
+            font-family: Poppins, sans-serif;
+        }
+
         .vertical-center {
             display: flex;
             align-items: center;
@@ -25,23 +32,16 @@
             background-color: var(--bs-main);
         }
 
-        body {
-            background-color: var(--bs-gray);
-            font-family: Poppins, sans-serif;
-            font-weight: 500;
-            font-size: 18px;
-        }
-
         h1 {
             font-size: 2.5rem;
             font-weight: 600;
         }
         h2{
+            hyphens: auto;
             font-size: 32px;
             font-weight: 800;
             line-height: 1.3;
             word-break: break-word;
-            hyphens: auto;
         }
 
         
