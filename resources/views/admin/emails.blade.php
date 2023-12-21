@@ -12,14 +12,20 @@
                 <thead>
                     <tr>
                         <th>Id</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
                         <th>Email</th>
+                        <th>Created At</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
                         <th>Id</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
                         <th>Email</th>
+                        <th>Created At</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
@@ -27,7 +33,16 @@
                     @foreach($emails as $email)
                     <tr>
                         <td>{{ $email->id }}</td>
-                        <td>{{ $email->email }}r</td>
+                        @if($email->details->count() > 0)
+                        
+                            <td>{{ $email->details[0]['firstname'] }}</td>
+                            <td>{{ $email->details[0]['lastname'] }}</td>
+                        @else
+                            <td></td>
+                            <td></td>
+                        @endif
+                        <td>{{ $email->email }}</td>
+                        <td>{{ \Carbon\Carbon::parse($email->created_at)->format('d-M-Y H:s:i') }}</td>
                         <td>
                             <a class="btn btn-success" title="View" href="#detailModal-{{$email->id}}" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
                         </td>

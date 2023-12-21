@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::any('/', function () {
-
+    
     return view('welcome');
 });
 Route::get('/detail', function () {

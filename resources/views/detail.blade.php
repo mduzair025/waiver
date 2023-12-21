@@ -9,8 +9,8 @@
                         @csrf
                         <input type="hidden" name="isEmail" value="{{$isEmail}}">
                         <input type="hidden" name="email" value="{{$email}}">
-                        <div class="bg-white text-center mb-4">
-                            <img src="https://cdn.rollerdigital.com/image/ZYgohD-N7ES84oOr_J6Q_A.png" class="img-fluid">
+                        <div class="bg-white text-center mb-4 py-3">
+                            <img src="https://air-nation.com/waiv-lvpt/public/build/assets/logo.png" class="img-fluid" width="200px">
                         </div>
                         <div class="content p-3">
                             <div class="back-btn">
@@ -37,7 +37,7 @@
                                         </g>
                                     </svg>
                                 </div>
-                                <h4 class="fw-bold">Looks like you already have a valid waiver at Ninja Warrior UK Adventure Park Wigan.</h2>
+                                <h4 class="fw-bold">Looks like you already have a valid waiver at Air Nation</h2>
                                 <div class="my-4">
                                     <p>Would you like to add a waiver for minors or dependants?</p>
                                     <div class="form-check form-check-inline">
@@ -59,14 +59,14 @@
                                     <label class="form-check-label" for="isminor-yes">Yes</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input type="radio" value="0" name="isminor" required id="isminor-no" class="form-check-input">
+                                    <input type="radio" value="0" name="isminor" required id="isminor-no" class="form-check-input" checked>
                                     <label class="form-check-label" for="isminor-no">No</label>
                                 </div>
                                 <div class="row py-5">
                                     <div class="col-12 mb-4 isMinor dnone">
                                         <label class="text-info">YOUR DETAILS (GUARDIAN)</label>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-12 col-sm-12 col-md-6">
                                         <div class="mb-3">
                                             <label for="firstname" class="form-label">First Name</label>
                                             <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Enter the first name" required>
@@ -75,7 +75,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-12 col-sm-12 col-md-6">
                                         <div class="mb-3">
                                             <label for="lastname" class="form-label">Last Name</label>
                                             <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Enter the last name" required>
@@ -84,16 +84,16 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-12 col-sm-12 col-md-6">
                                         <div class="mb-3">
                                             <label for="dob" class="form-label">Date of Birth</label>
-                                            <input type="date" class="form-control" name="dob" id="dob" required>
+                                            <input type="date" class="form-control" name="dob" id="dob" max="2007-12-31" required>
                                             @error('dob')
                                             <small class="text-danger">{{ $message }}</small>
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-12 col-sm-12 col-md-6">
                                         <div class="mb-3">
                                             <label for="phone" class="form-label">Phone</label>
                                             <input type="text" class="form-control" name="phone" id="phone" placeholder="Enter the phone number" required>
@@ -178,7 +178,7 @@
                 <div class="col-12">
                     <div class="mb-3">
                         <label class="form-label">Date of birth</label>
-                        <input type="date" class="form-control" name="minors[${count}][dob]" required>
+                        <input type="date" class="form-control" name="minors[${count}][dob]" min="2007-12-31" required>
                     </div>
                 </div>
             </div>`;

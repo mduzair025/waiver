@@ -210,7 +210,7 @@
                                                         >
                                                           <img
                                                             class="m_-8487123158050122305small-float-center CToWUd"
-                                                            src="https://ci3.googleusercontent.com/meips/ADKq_NauUnb8Lz04d2UedNUtco0CzhiPN1pPdSzAwqcKNwDaivSvtJNUh9kT-bfP-2qSbjeJL7zfFOYNbpNfgAToT5OX68BhMnS5dgeENlqlqfo3Vqc4Lg=s0-d-e1-ft#https://cdn.rollerdigital.com/image/jNh78hpMEkKugZC-Ki3A6Q.jpg"
+                                                            src="https://air-nation.com/waiv-lvpt/public/build/assets/logo.png"
                                                             style="
                                                               outline: none;
                                                               text-decoration: none;
@@ -473,9 +473,7 @@
                                                               signing Waiver<br />
                                                               <br />Kind
                                                               regards, <br />
-                                                              Ninja Warrior UK
-                                                              Adventure Park
-                                                              Wigan</span
+                                                              Air Nation</span
                                                             >
                                                           </p>
                                                         </th>

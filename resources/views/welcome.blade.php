@@ -7,11 +7,11 @@
                 <div class="bg-main rounded-3 shadow-sm">
                     <form action="{{route('email-check')}}" method="POST">
                         @csrf
-                        <div class="bg-white text-center mb-4">
-                            <img src="https://cdn.rollerdigital.com/image/ZYgohD-N7ES84oOr_J6Q_A.png" class="img-fluid">
+                        <div class="bg-white text-center mb-4 py-3">
+                            <img src="https://air-nation.com/waiv-lvpt/public/build/assets/logo.png" class="img-fluid" width="200px">
                         </div>
                         <div class="content p-3 m-md-4">
-                            <h1>{{env('APP_NAME')}}</h1>
+                            <h2 class="fw-bold">Air Nation Waiver</h2>
                             <b>Unsure if you have an existing waiver? Enter your email address and we'll let you know.</b>
 
                             <div class="input-group my-5">
@@ -21,7 +21,10 @@
                                 @enderror
                                 <button  type="submit" class="btn btn-primary input-group-text">Continue</button>
                             </div>
-                            <p class="text-muted">You must be 18 or older to sign this document.</p>
+                            <ul>
+                                <li class="text-muted">16 and Over must sign the waiver for themselves.</li>
+                                <li class="text-muted">You must be 18 or older to sign this Waiver  on behalf of a minor or a dependent.</li>
+                            </ul>
                         </div>
                     </form>
                 </div>

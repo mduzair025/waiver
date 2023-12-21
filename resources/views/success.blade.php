@@ -5,8 +5,8 @@
         <div class="row vertical-center justify-content-center">
             <div class="col-12 col-sm-12 col-md-9 col-lg-8">
                 <div class="bg-main rounded-3 shadow-sm">
-                    <div class="text-center mb-4 bg-white">
-                        <img src="https://cdn.rollerdigital.com/image/ZYgohD-N7ES84oOr_J6Q_A.png" class="img-fluid">
+                    <div class="bg-white text-center mb-4 py-3">
+                        <img src="https://air-nation.com/waiv-lvpt/public/build/assets/logo.png" class="img-fluid" width="200px">
                     </div>
                     <div class="content p-3">
                         <div>
@@ -17,9 +17,9 @@
                                 <p>Please show the signed copy (or just this screen) to one of our staff when you arrive.</p>
                                 <p>If there are still guests on your booking that need to sign a waiver, you can give them this link:</p>
                                 <p class="text-break">
-                                    <a href="#">https://waiver.roller.app/ninjawarriorwigan/waiver/</a>
+                                    <a href="https://air-nation.com/">https://air-nation.com/</a>
                                 </p>
-                                <p>This link can be used by anyone to sign a waiver for Ninja Warrior UK Adventure Park Wigan</p>
+                                <p>This link can be used by anyone to sign a waiver for Air Nation</p>
                                 <h2>Waiver holders</h2>
                                 <ul class="list-group">
                                     <li class="list-group-item">
