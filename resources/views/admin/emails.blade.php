@@ -16,6 +16,7 @@
                         <th>Last Name</th>
                         <th>Email</th>
                         <th>Created At</th>
+                        <th>Expired At</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -26,6 +27,7 @@
                         <th>Last Name</th>
                         <th>Email</th>
                         <th>Created At</th>
+                        <th>Expired At</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
@@ -43,6 +45,7 @@
                         @endif
                         <td>{{ $email->email }}</td>
                         <td>{{ \Carbon\Carbon::parse($email->created_at)->format('d-M-Y H:s:i') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($email->created_at)->addMonths(6)->format('d-M-Y H:s:i') }}</td>
                         <td>
                             <a class="btn btn-success" title="View" href="#detailModal-{{$email->id}}" data-bs-toggle="modal"><i class="fa fa-eye"></i></a>
                         </td>

@@ -36,7 +36,7 @@
 
                                 <strong>{{$detail['firstname'] . ' ' . $detail['lastname']}}</strong><br>
                                 <span>Signed: {{\Carbon\Carbon::parse($email['created_at'])->format('d/m/Y')}}</span><br>
-                                <span>Expires: {{\Carbon\Carbon::parse($email['created_at'])->addYears(1)->format('d/m/Y')}}</span><br>
+                                <span>Expires: {{\Carbon\Carbon::parse($email['created_at'])->addMonths(6)->format('d/m/Y')}}</span><br>
                             </div>
                         </div>
                     </form>
