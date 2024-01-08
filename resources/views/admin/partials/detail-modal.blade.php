@@ -14,6 +14,7 @@
                         <div class="header-cell">Phone</div>
                         <div class="header-cell">Date of Birth</div>
                         <div class="header-cell">Created At</div>
+                        <div class="header-cell">Expired At</div>
                         <div class="header-cell">Action</div>
                     </div>
                    
@@ -25,6 +26,7 @@
                             <div class="table-cell">{{$detail->phone}}</div>
                             <div class="table-cell">{{$detail->dob}}</div>
                             <div class="table-cell">{{\Carbon\Carbon::parse($detail->created_at)->format('d-M-Y H:s:i')}}</div>
+                            <div class="table-cell">{{ \Carbon\Carbon::parse($detail->created_at)->addMonths(6)->format('d-M-Y H:s:i') }}</div>
                             <div class="table-cell">
                                 @if($detail->minors->count() > 0)
                                     <a class="btn btn-success bg-success" title="View" href="#minorModal-{{$detail->id}}" data-bs-toggle="modal">
